@@ -1,0 +1,50 @@
+import { Component, OnInit, HostListener, AfterViewInit } from '@angular/core';
+import { fromEvent, Subscription } from 'rxjs';
+import { throttleTime } from 'rxjs/operators';
+import { ScrollSpyService } from 'ng-spy';
+import { TranslateService } from '@ngx-translate/core';
+
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent implements OnInit, AfterViewInit {
+  public fixedHeader: boolean = false;
+  private windowScroll$: Subscription = Subscription.EMPTY;
+
+  constructor(private spyService: ScrollSpyService,
+              private translate: TranslateService
+  ) {
+    this.translate.setDefaultLang('uk-UA');
+    this.translate.use('uk-UA');
+  }
+
+  ngOnInit() {
+    this.windowScroll$ = fromEvent(window, 'scroll')
+      .pipe(throttleTime(30))
+      .subscribe(() => this.onScroll());
+  }
+
+  ngAfterViewInit() {
+    this.spyService.spy({ thresholdBottom: 50 });
+  }
+
+  ngOnDestroy() {
+    this.windowScroll$.unsubscribe();
+  }
+
+  switchLang(lang: string): void {
+    this.translate.use(lang);
+  }
+
+  onScroll() {
+    // Code to fix header on scroll
+    if (document.documentElement.scrollTop >= 100 || document.body.scrollTop >= 100) {
+      this.fixedHeader = true;
+    } else {
+      this.fixedHeader = false;
+    }
+  }
+}
