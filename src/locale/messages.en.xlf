@@ -732,7 +732,7 @@
           <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">446</context>
         </context-group>
-      <target>- Quickly set up and launch a store.</target></trans-unit>
+      <target>Quickly set up and launch a store.</target></trans-unit>
       <trans-unit id="390348949778972421" datatype="html">
         <source>Зручний інтерфейс, що підвищує конверсію.</source>
         <context-group purpose="location">
@@ -743,7 +743,7 @@
           <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">447</context>
         </context-group>
-      <target>- User-friendly interface that increases conversion.</target></trans-unit>
+      <target>User-friendly interface that increases conversion.</target></trans-unit>
       <trans-unit id="7564668344853592450" datatype="html">
         <source>Автоматизація процесів завантаження та експорту товарів.</source>
         <context-group purpose="location">
@@ -754,7 +754,7 @@
           <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">448</context>
         </context-group>
-      <target>- Automation of the processes of loading and exporting goods.</target></trans-unit>
+      <target>Automation of the processes of loading and exporting goods.</target></trans-unit>
       <trans-unit id="8530005119116737280" datatype="html">
         <source>Інтеграція з аналітикою, логістикою та відгуками для максимального комфорту клієнтів.</source>
         <context-group purpose="location">
@@ -765,7 +765,7 @@
           <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">449</context>
         </context-group>
-      <target>- Integration with analytics, logistics, and feedback to maximize customer experience.</target></trans-unit>
+      <target>Integration with analytics, logistics, and feedback to maximize customer experience.</target></trans-unit>
       <trans-unit id="5656542462368089339" datatype="html">
         <source>Оптимізована робота магазину без зайвого навантаження на сервер.</source>
         <context-group purpose="location">
@@ -776,7 +776,7 @@
           <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">450</context>
         </context-group>
-      <target>- Optimized store performance without unnecessary server load.</target></trans-unit>
+      <target>Optimized store performance without unnecessary server load.</target></trans-unit>
       <trans-unit id="3859155468508029927" datatype="html">
         <source>Обираючи OpenCart із Deluxe та модулями автоматизації, ви отримуєте готове рішення для швидкого та успішного запуску інтернет-бізнесу.</source>
         <context-group purpose="location">

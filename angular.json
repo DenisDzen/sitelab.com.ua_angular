@@ -16,9 +16,7 @@
       "i18n": {
         "sourceLocale": "uk-UA",
         "locales": {
-          "en-US": {
-            "translation": "src/locale/messages.en.xlf"
-          }
+          "en": "src/locale/messages.en.xlf"
         }
       },
       "architect": {
@@ -81,10 +79,8 @@
               ],
               "aot": true
             },
-            "production": {
-              "localize": [
-                "uk-UA"
-              ],
+            "production-ua": {
+              "localize": ["uk-UA"],
               "outputPath": "dist/uk-UA",
               "index": "src/index.html",
               "optimization": true,
@@ -109,16 +105,14 @@
               ]
             },
             "production-en": {
-              "localize": [
-                "en-US"
-              ],
-              "outputPath": "dist/en-US",
+              "localize": ["en"],
+              "outputPath": "dist/en",
               "index": "src/index.html",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
-              "baseHref": "/en-US/",
+              "baseHref": "/en/",
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -144,13 +138,13 @@
               "namedChunks": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "production-ua"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "en-US": {
-              "browserTarget": "my-first-project:build:development:en-US"
+            "en": {
+              "browserTarget": "my-first-project:build:en-dev"
             },
             "ua-dev": {
               "browserTarget": "my-first-project:build:ua-dev"
@@ -159,7 +153,7 @@
               "browserTarget": "my-first-project:build:en-dev"
             },
             "production": {
-              "browserTarget": "my-first-project:build:production"
+              "browserTarget": "my-first-project:build:production-ua"
             },
             "development": {
               "browserTarget": "my-first-project:build:development"
