@@ -21,13 +21,14 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "localize": true,
             "i18nDuplicateTranslation": "error",
-            "outputPath": "dist/my-first-project",
+            "outputPath": {
+              "base": "dist/my-first-project"
+            },
             "index": "src/index.html",
-            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -47,7 +48,8 @@
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
               "node_modules/lightbox2/dist/js/lightbox-plus-jquery.min.js"
-            ]
+            ],
+            "browser": "src/main.ts"
           },
           "configurations": {
             "en-US": {
@@ -56,24 +58,20 @@
               ]
             },
             "ua-dev": {
-              "buildOptimizer": false,
               "optimization": false,
               "sourceMap": true,
               "namedChunks": true,
               "extractLicenses": false,
-              "vendorChunk": true,
               "localize": [
                 "uk-UA"
               ],
               "aot": true
             },
             "en-dev": {
-              "buildOptimizer": false,
               "optimization": false,
               "sourceMap": true,
               "namedChunks": true,
               "extractLicenses": false,
-              "vendorChunk": true,
               "localize": [
                 "en-US"
               ],
@@ -81,7 +79,9 @@
             },
             "production-ua": {
               "localize": ["uk-UA"],
-              "outputPath": "dist/uk-UA",
+              "outputPath": {
+                "base": "dist/uk-UA"
+              },
               "index": "src/index.html",
               "optimization": true,
               "outputHashing": "all",
@@ -89,8 +89,6 @@
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -106,7 +104,9 @@
             },
             "production-en": {
               "localize": ["en"],
-              "outputPath": "dist/en",
+              "outputPath": {
+                "base": "dist/en"
+              },
               "index": "src/index.html",
               "optimization": true,
               "outputHashing": "all",
@@ -114,8 +114,6 @@
               "namedChunks": false,
               "baseHref": "/en/",
               "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
@@ -130,9 +128,7 @@
               ]
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
