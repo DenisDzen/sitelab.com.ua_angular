@@ -144,19 +144,19 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "en": {
-              "browserTarget": "my-first-project:build:en-dev"
+              "buildTarget": "my-first-project:build:en-dev"
             },
             "ua-dev": {
-              "browserTarget": "my-first-project:build:ua-dev"
+              "buildTarget": "my-first-project:build:ua-dev"
             },
             "en-dev": {
-              "browserTarget": "my-first-project:build:en-dev"
+              "buildTarget": "my-first-project:build:en-dev"
             },
             "production": {
-              "browserTarget": "my-first-project:build:production-ua"
+              "buildTarget": "my-first-project:build:production-ua"
             },
             "development": {
-              "browserTarget": "my-first-project:build:development"
+              "buildTarget": "my-first-project:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -164,9 +164,9 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "my-first-project:build",
             "format": "xlf",
-            "outputPath": "src/locale"
+            "outputPath": "src/locale",
+            "buildTarget": "my-first-project:build"
           }
         },
         "test": {
