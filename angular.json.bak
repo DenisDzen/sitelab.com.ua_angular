@@ -24,13 +24,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser-esbuild",
           "options": {
+            "esbuild": true,
+            "main": "src/main.ts",
+            "localize": true,
+            "i18nDuplicateTranslation": "error",
             "outputPath": "dist/my-app",
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": [
-              "zone.js",
-              "@angular/localize/init"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -47,16 +47,44 @@
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
               "node_modules/lightbox2/dist/js/lightbox-plus-jquery.min.js"
-            ]
+            ],
+            "browser": "src/main.ts"
           },
           "configurations": {
-            "production": {
-              "esbuild": {
-                "minify": true,
-                "legalComments": "none"
+            "en-US": {
+              "localize": [
+                "en-US"
+              ]
+            },
+            "ua-dev": {
+              "optimization": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "extractLicenses": false,
+              "localize": [
+                "uk-UA"
+              ],
+              "aot": true
+            },
+            "en-dev": {
+              "optimization": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "extractLicenses": false,
+              "localize": [
+                "en-US"
+              ],
+              "aot": true
+            },
+            "production-ua": {
+              "localize": ["uk-UA"],
+              "outputPath": {
+                "base": "dist/uk-UA"
               },
+              "index": "src/index.html",
               "optimization": true,
               "outputHashing": "all",
+              "baseHref": "/uk-UA/",
               "sourceMap": false,
               "namedChunks": false,
               "extractLicenses": true,
@@ -73,48 +101,39 @@
                 }
               ]
             },
-            "en-US": {
-              "localize": ["en-US"],
-              "optimization": false,
-              "sourceMap": true
-            },
-            "ua-dev": {
-              "localize": ["uk-UA"],
-              "optimization": false,
-              "sourceMap": true
-            },
-            "en-dev": {
-              "localize": ["en-US"],
-              "optimization": false,
-              "sourceMap": true
-            },
-            "production-ua": {
-              "localize": ["uk-UA"],
-              "esbuild": {
-                "minify": true
-              },
-              "outputPath": "dist/uk-UA",
-              "baseHref": "/uk-UA/",
-              "optimization": true,
-              "outputHashing": "all"
-            },
             "production-en": {
               "localize": ["en"],
-              "esbuild": {
-                "minify": true
+              "outputPath": {
+                "base": "dist/en"
               },
-              "outputPath": "dist/en",
-              "baseHref": "/en/",
+              "index": "src/index.html",
               "optimization": true,
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "baseHref": "/en/",
+              "extractLicenses": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "3mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ]
             },
             "development": {
               "optimization": false,
+              "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "production-ua"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -125,8 +144,11 @@
             "ua-dev": {
               "buildTarget": "my-first-project:build:ua-dev"
             },
+            "en-dev": {
+              "buildTarget": "my-first-project:build:en-dev"
+            },
             "production": {
-              "buildTarget": "my-first-project:build:production"
+              "buildTarget": "my-first-project:build:production-ua"
             },
             "development": {
               "buildTarget": "my-first-project:build:development"
@@ -138,7 +160,8 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "format": "xlf",
-            "outputPath": "src/locale"
+            "outputPath": "src/locale",
+            "buildTarget": "my-first-project:build"
           }
         },
         "test": {
@@ -149,13 +172,15 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
               "src/styles.scss"
-            ]
+            ],
+            "scripts": []
           }
         }
       }
