@@ -10,25 +10,28 @@ import { ExperienceComponent } from './main/experience/experience.component';
 import { TestimonialsComponent } from './main/testimonials/testimonials.component';
 
 const routes: Routes = [
-  { path: 'uk/home', component: HomeComponent },
-  { path: 'en/home', component: HomeComponent },
-  { path: 'uk/about', component: AboutComponent },
-  { path: 'en/about', component: AboutComponent },
-  { path: 'uk/services', component: ServicesComponent },
+  // Украинские маршруты (базовый путь теперь '')
+  { path: '', component: HomeComponent }, // Главная УКР на '/'
+  { path: 'about', component: AboutComponent }, // УКР About на '/about'
+  { path: 'services', component: ServicesComponent }, // УКР Services на '/services'
+  { path: 'work', component: WorkComponent },
+  { path: 'blog', component: BlogComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'experience', component: ExperienceComponent },
+  { path: 'testimonials', component: TestimonialsComponent },
+
+  // Английские маршруты (с префиксом 'en')
+  { path: 'en', component: HomeComponent }, // Главная ENG на '/en'
+  { path: 'en/about', component: AboutComponent }, // ENG About на '/en/about'
   { path: 'en/services', component: ServicesComponent },
-  { path: 'uk/work', component: WorkComponent },
   { path: 'en/work', component: WorkComponent },
-  { path: 'uk/blog', component: BlogComponent },
   { path: 'en/blog', component: BlogComponent },
-  { path: 'uk/contact', component: ContactComponent },
   { path: 'en/contact', component: ContactComponent },
-  { path: 'uk/experience', component: ExperienceComponent },
   { path: 'en/experience', component: ExperienceComponent },
-  { path: 'uk/testimonials', component: TestimonialsComponent },
   { path: 'en/testimonials', component: TestimonialsComponent },
-  { path: 'uk', redirectTo: '/uk/home', pathMatch: 'full' },
-  { path: 'en', redirectTo: '/en/home', pathMatch: 'full' },
-  { path: '', redirectTo: '/uk/home', pathMatch: 'full' }
+
+  // Опционально: перенаправление для всех остальных (неизвестных) путей на главную УКР
+  // { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
