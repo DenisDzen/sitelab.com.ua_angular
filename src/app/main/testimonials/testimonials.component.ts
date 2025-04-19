@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { options, options2 } from '../constant';
+import { CommonModule, NgFor } from '@angular/common'; // Добавлены импорты
+import { CarouselModule } from 'ngx-owl-carousel-o'; // Добавлен импорт CarouselModule
+
 @Component({
   selector: 'app-testimonials',
+  standalone: true, // Добавлено standalone: true
+  imports: [CommonModule, NgFor, CarouselModule], // Добавлены импорты в массив imports
   templateUrl: './testimonials.component.html',
   styleUrls: ['./testimonials.component.scss']
 })

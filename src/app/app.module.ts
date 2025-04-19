@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'; // Для HTTP-запросов
-import { registerLocaleData } from '@angular/common';
-import localeUk from '@angular/common/locales/uk'; // Правильный импорт украинской локали
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-// Компоненты
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
@@ -18,40 +14,16 @@ import { TestimonialsComponent } from './main/testimonials/testimonials.componen
 import { BlogComponent } from './main/blog/blog.component';
 import { ContactComponent } from './main/contact/contact.component';
 
-// Внешние модули
-import { CarouselModule } from 'ngx-owl-carousel-o';
-import { NgClickOutsideDirective } from 'ng-click-outside2';
-import { ScrollSpyModule } from 'ng-spy';
-
-// Регистрация локали
-registerLocaleData(localeUk, 'uk-UA');
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    MainComponent,
-    HomeComponent,
-    AboutComponent,
-    ExperienceComponent,
-    ServicesComponent,
-    WorkComponent,
-    TestimonialsComponent,
-    BlogComponent,
-    ContactComponent
+    // Все standalone-компоненты удалены отсюда
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    CarouselModule,
-    ScrollSpyModule,
-    NgClickOutsideDirective,
-    // RouterModule должен быть здесь если используется
+    AppRoutingModule
   ],
-  providers: [
-    // Добавьте сервисы здесь при необходимости
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
